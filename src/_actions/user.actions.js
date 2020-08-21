@@ -13,7 +13,7 @@ function login(username, password) {
         userService.login(username, password)
             .then(
                 user => { 
-                    dispatch(success(user));
+                    dispatch({type: userConstants.LOGIN_SUCCESS, user});
                     history.push('/');
                 },
                 error => {
@@ -23,7 +23,6 @@ function login(username, password) {
             );
     };
 
-    function success(user) { return { type: userConstants.LOGIN_SUCCESS, user } }
 }
 
 function logout() {
